@@ -28,7 +28,11 @@ class App extends Component {
     if (this.state.contacts !== prevState.contact) {
       localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
+    if (this.state.contacts === 0) {
+      localStorage.removeItem('contacts');
+    }
   }
+
   addContact = ({ name, number }) => {
     if (
       this.state.contacts.find(
